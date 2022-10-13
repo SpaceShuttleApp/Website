@@ -19,5 +19,5 @@ async def home(request: fastapi.Request):
 @app.get("/install", response_class=fastapi.responses.HTMLResponse)
 def install(request: fastapi.Request):
     return fastapi.responses.RedirectResponse(
-        "https://alpha.deta.space/discovery/spaceshuttle-sbm-v0.1.0"
+        "https://alpha.deta.space/discovery/spaceshuttle-sbm-v0.1.1"
     )

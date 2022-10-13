@@ -1,3 +1,3 @@
-# SpaceCdn Website
+# SpaceShuttle Website
 
-> https://spacecdn.deta.dev
+> https://spaceshuttle.deta.dev

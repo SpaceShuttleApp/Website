@@ -1,19 +1,16 @@
-import fastapi
+from fastapi import FastAPI, Request
+from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI()
+pages = Jinja2Templates(directory="templates")
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
-app = fastapi.FastAPI()
-pages = Jinja2Templates(directory="static")
-app.add_middleware(CORSMiddleware, allow_origins=["*"])
-app.mount("/styles", StaticFiles(directory="styles"), name="styles")
-app.mount("/assets", StaticFiles(directory="assets"), name="assets")
-
-
-@app.get("/")
-async def home(request: fastapi.Request):
-    return pages.TemplateResponse("home.html", {"request": request})
+@app.get("/", response_class=HTMLResponse)
+async def index(request: Request):
+    return pages.TemplateResponse("index.html", {"request": request})
 
 
 @app.get("/install", response_class=fastapi.responses.HTMLResponse)

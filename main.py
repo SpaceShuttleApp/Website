@@ -16,4 +16,4 @@ async def home(request: Request):
 
 @app.get("/install", response_class=RedirectResponse)
 async def install():
-    return RedirectResponse("https://alpha.deta.space/discovery/spaceshuttle-sbm-v0.1.0")
+    return RedirectResponse("https://alpha.deta.space/discovery/spaceshuttle-sbm-v0.1.1.1")
